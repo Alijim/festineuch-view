@@ -1,32 +1,74 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+    >
+      <!--  -->
+    </v-navigation-drawer>
+
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Application</v-toolbar-title>
+    </v-app-bar>
+
+    <v-main>
+      <v-container>
+         <p class="text-h4 text--primary text-center">Gestion de flux de la porte d'entrée</p>
+       <v-card
+          class="mx-auto"
+          max-width="500"
+        >
+          <v-card-text>
+            <p class="text-h5 text--primary">
+              Prédiction du flux
+            </p>            
+            <div>Jeudi, 26.06</div>
+            <div>19:32</div>
+            <p class="text-h5 text--primary">
+              Demande de bénévoles à l'entrée
+            </p>
+            <v-alert type="error">
+              Besoin de mobilisation : 2 bénévoles
+            </v-alert>
+            <div class="text--primary font-weight-medium">
+              arrivée en provenance de : Fribourg<br>
+              estimation de : 500 personnes
+            </div>
+          </v-card-text>
+        </v-card>
+         <v-card
+          class="mx-auto"
+          max-width="500"
+        >
+
+          <v-card-text class="mt-12">
+            <p class="text-h5 text--primary">
+              Prédiction du flux
+            </p>            
+            <div>Jeudi, 26.06</div>
+            <div>21:10</div>
+            <p class="text-h5 text--primary">
+              Demande de bénévoles à l'entrée
+            </p>
+            <v-alert type="info">
+              Flux contrôlé
+            </v-alert>
+            <div class="text--primary font-weight-medium">
+              arrivée en provenance de : Lausanne<br>
+              estimation de : 10 personnes
+            </div>
+          </v-card-text>
+        </v-card>
+      
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+  export default {
+    data: () => ({ drawer: null }),
   }
-}
-</style>
+</script>
